@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Графік відключень — Черга 5.2 (Житомир)</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f8fafc;
+            --muted: #94a3b8;
+            --red: #ef4444;
+            --green: #22c55e;
+            --border: #334155;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            padding: 20px 16px;
+            line-height: 1.5;
+        }
+        .container { max-width: 640px; margin: 0 auto; }
+        header { text-align: center; margin-bottom: 24px; }
+        h1 { font-size: 1.5rem; margin-bottom: 6px; }
+        .meta { font-size: 0.85rem; color: var(--muted); }
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 18px;
+            margin-bottom: 18px;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 14px;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+        .card-header h2 { font-size: 1.15rem; }
+        .badge {
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .outage-list { list-style: none; margin-bottom: 16px; }
+        .outage-list li { font-size: 1.05rem; padding: 4px 0; }
+        .timeline-label { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; }
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(48, 1fr);
+            gap: 2px;
+            height: 22px;
+        }
+        .slot { border-radius: 2px; }
+        .slot.off { background: var(--red); }
+        .slot.on { background: var(--green); opacity: 0.35; }
+        .hours-scale {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+        footer { text-align: center; font-size: 0.8rem; color: var(--muted); margin-top: 20px; }
+        a { color: #60a5fa; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>⚡ Графік відключень — Черга 5.2</h1>
+            <p class="meta">Житомирська область • Оновлено на сайті: <strong>23:00 13.11.2026</strong></p>
+            <p class="meta">Перевірено скриптом: 13.11.2026 23:03</p>
+        </header>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>📅 13.11.2026</h2>
+                <span class="badge">Без світла: 9.5 год</span>
+            </div>
+            <ul class="outage-list"><li>🔴 <strong>03:30 – 06:30</strong></li><li>🔴 <strong>10:30 – 12:30</strong></li><li>🔴 <strong>15:30 – 18:30</strong></li><li>🔴 <strong>22:30 – 24:00</strong></li></ul>
+            <div class="timeline-label">Погодинна шкала (00:00 — 24:00):</div>
+            <div class="timeline"><div class="slot on" title="00:00 - 00:30: Є світло"></div><div class="slot on" title="00:30 - 01:00: Є світло"></div><div class="slot on" title="01:00 - 01:30: Є світло"></div><div class="slot on" title="01:30 - 02:00: Є світло"></div><div class="slot on" title="02:00 - 02:30: Є світло"></div><div class="slot on" title="02:30 - 03:00: Є світло"></div><div class="slot on" title="03:00 - 03:30: Є світло"></div><div class="slot off" title="03:30 - 04:00: Немає світла"></div><div class="slot off" title="04:00 - 04:30: Немає світла"></div><div class="slot off" title="04:30 - 05:00: Немає світла"></div><div class="slot off" title="05:00 - 05:30: Немає світла"></div><div class="slot off" title="05:30 - 06:00: Немає світла"></div><div class="slot off" title="06:00 - 06:30: Немає світла"></div><div class="slot on" title="06:30 - 07:00: Є світло"></div><div class="slot on" title="07:00 - 07:30: Є світло"></div><div class="slot on" title="07:30 - 08:00: Є світло"></div><div class="slot on" title="08:00 - 08:30: Є світло"></div><div class="slot on" title="08:30 - 09:00: Є світло"></div><div class="slot on" title="09:00 - 09:30: Є світло"></div><div class="slot on" title="09:30 - 10:00: Є світло"></div><div class="slot on" title="10:00 - 10:30: Є світло"></div><div class="slot off" title="10:30 - 11:00: Немає світла"></div><div class="slot off" title="11:00 - 11:30: Немає світла"></div><div class="slot off" title="11:30 - 12:00: Немає світла"></div><div class="slot off" title="12:00 - 12:30: Немає світла"></div><div class="slot on" title="12:30 - 13:00: Є світло"></div><div class="slot on" title="13:00 - 13:30: Є світло"></div><div class="slot on" title="13:30 - 14:00: Є світло"></div><div class="slot on" title="14:00 - 14:30: Є світло"></div><div class="slot on" title="14:30 - 15:00: Є світло"></div><div class="slot on" title="15:00 - 15:30: Є світло"></div><div class="slot off" title="15:30 - 16:00: Немає світла"></div><div class="slot off" title="16:00 - 16:30: Немає світла"></div><div class="slot off" title="16:30 - 17:00: Немає світла"></div><div class="slot off" title="17:00 - 17:30: Немає світла"></div><div class="slot off" title="17:30 - 18:00: Немає світла"></div><div class="slot off" title="18:00 - 18:30: Немає світла"></div><div class="slot on" title="18:30 - 19:00: Є світло"></div><div class="slot on" title="19:00 - 19:30: Є світло"></div><div class="slot on" title="19:30 - 20:00: Є світло"></div><div class="slot on" title="20:00 - 20:30: Є світло"></div><div class="slot on" title="20:30 - 21:00: Є світло"></div><div class="slot on" title="21:00 - 21:30: Є світло"></div><div class="slot on" title="21:30 - 22:00: Є світло"></div><div class="slot on" title="22:00 - 22:30: Є світло"></div><div class="slot off" title="22:30 - 23:00: Немає світла"></div><div class="slot off" title="23:00 - 23:30: Немає світла"></div><div class="slot off" title="23:30 - 24:00: Немає світла"></div></div>
+            <div class="hours-scale">
+                <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>📅 13.11.2026</h2>
+                <span class="badge">Без світла: 9.5 год</span>
+            </div>
+            <ul class="outage-list"><li>🔴 <strong>03:30 – 06:30</strong></li><li>🔴 <strong>10:30 – 12:30</strong></li><li>🔴 <strong>15:30 – 18:30</strong></li><li>🔴 <strong>22:30 – 24:00</strong></li></ul>
+            <div class="timeline-label">Погодинна шкала (00:00 — 24:00):</div>
+            <div class="timeline"><div class="slot on" title="00:00 - 00:30: Є світло"></div><div class="slot on" title="00:30 - 01:00: Є світло"></div><div class="slot on" title="01:00 - 01:30: Є світло"></div><div class="slot on" title="01:30 - 02:00: Є світло"></div><div class="slot on" title="02:00 - 02:30: Є світло"></div><div class="slot on" title="02:30 - 03:00: Є світло"></div><div class="slot on" title="03:00 - 03:30: Є світло"></div><div class="slot off" title="03:30 - 04:00: Немає світла"></div><div class="slot off" title="04:00 - 04:30: Немає світла"></div><div class="slot off" title="04:30 - 05:00: Немає світла"></div><div class="slot off" title="05:00 - 05:30: Немає світла"></div><div class="slot off" title="05:30 - 06:00: Немає світла"></div><div class="slot off" title="06:00 - 06:30: Немає світла"></div><div class="slot on" title="06:30 - 07:00: Є світло"></div><div class="slot on" title="07:00 - 07:30: Є світло"></div><div class="slot on" title="07:30 - 08:00: Є світло"></div><div class="slot on" title="08:00 - 08:30: Є світло"></div><div class="slot on" title="08:30 - 09:00: Є світло"></div><div class="slot on" title="09:00 - 09:30: Є світло"></div><div class="slot on" title="09:30 - 10:00: Є світло"></div><div class="slot on" title="10:00 - 10:30: Є світло"></div><div class="slot off" title="10:30 - 11:00: Немає світла"></div><div class="slot off" title="11:00 - 11:30: Немає світла"></div><div class="slot off" title="11:30 - 12:00: Немає світла"></div><div class="slot off" title="12:00 - 12:30: Немає світла"></div><div class="slot on" title="12:30 - 13:00: Є світло"></div><div class="slot on" title="13:00 - 13:30: Є світло"></div><div class="slot on" title="13:30 - 14:00: Є світло"></div><div class="slot on" title="14:00 - 14:30: Є світло"></div><div class="slot on" title="14:30 - 15:00: Є світло"></div><div class="slot on" title="15:00 - 15:30: Є світло"></div><div class="slot off" title="15:30 - 16:00: Немає світла"></div><div class="slot off" title="16:00 - 16:30: Немає світла"></div><div class="slot off" title="16:30 - 17:00: Немає світла"></div><div class="slot off" title="17:00 - 17:30: Немає світла"></div><div class="slot off" title="17:30 - 18:00: Немає світла"></div><div class="slot off" title="18:00 - 18:30: Немає світла"></div><div class="slot on" title="18:30 - 19:00: Є світло"></div><div class="slot on" title="19:00 - 19:30: Є світло"></div><div class="slot on" title="19:30 - 20:00: Є світло"></div><div class="slot on" title="20:00 - 20:30: Є світло"></div><div class="slot on" title="20:30 - 21:00: Є світло"></div><div class="slot on" title="21:00 - 21:30: Є світло"></div><div class="slot on" title="21:30 - 22:00: Є світло"></div><div class="slot on" title="22:00 - 22:30: Є світло"></div><div class="slot off" title="22:30 - 23:00: Немає світла"></div><div class="slot off" title="23:00 - 23:30: Немає світла"></div><div class="slot off" title="23:30 - 24:00: Немає світла"></div></div>
+            <div class="hours-scale">
+                <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">
+                <h2>📅 14.11.2026</h2>
+                <span class="badge">Без світла: 8 год</span>
+            </div>
+            <ul class="outage-list"><li>🔴 <strong>08:30 – 10:30</strong></li><li>🔴 <strong>13:30 – 16:30</strong></li><li>🔴 <strong>19:30 – 22:30</strong></li></ul>
+            <div class="timeline-label">Погодинна шкала (00:00 — 24:00):</div>
+            <div class="timeline"><div class="slot on" title="00:00 - 00:30: Є світло"></div><div class="slot on" title="00:30 - 01:00: Є світло"></div><div class="slot on" title="01:00 - 01:30: Є світло"></div><div class="slot on" title="01:30 - 02:00: Є світло"></div><div class="slot on" title="02:00 - 02:30: Є світло"></div><div class="slot on" title="02:30 - 03:00: Є світло"></div><div class="slot on" title="03:00 - 03:30: Є світло"></div><div class="slot on" title="03:30 - 04:00: Є світло"></div><div class="slot on" title="04:00 - 04:30: Є світло"></div><div class="slot on" title="04:30 - 05:00: Є світло"></div><div class="slot on" title="05:00 - 05:30: Є світло"></div><div class="slot on" title="05:30 - 06:00: Є світло"></div><div class="slot on" title="06:00 - 06:30: Є світло"></div><div class="slot on" title="06:30 - 07:00: Є світло"></div><div class="slot on" title="07:00 - 07:30: Є світло"></div><div class="slot on" title="07:30 - 08:00: Є світло"></div><div class="slot on" title="08:00 - 08:30: Є світло"></div><div class="slot off" title="08:30 - 09:00: Немає світла"></div><div class="slot off" title="09:00 - 09:30: Немає світла"></div><div class="slot off" title="09:30 - 10:00: Немає світла"></div><div class="slot off" title="10:00 - 10:30: Немає світла"></div><div class="slot on" title="10:30 - 11:00: Є світло"></div><div class="slot on" title="11:00 - 11:30: Є світло"></div><div class="slot on" title="11:30 - 12:00: Є світло"></div><div class="slot on" title="12:00 - 12:30: Є світло"></div><div class="slot on" title="12:30 - 13:00: Є світло"></div><div class="slot on" title="13:00 - 13:30: Є світло"></div><div class="slot off" title="13:30 - 14:00: Немає світла"></div><div class="slot off" title="14:00 - 14:30: Немає світла"></div><div class="slot off" title="14:30 - 15:00: Немає світла"></div><div class="slot off" title="15:00 - 15:30: Немає світла"></div><div class="slot off" title="15:30 - 16:00: Немає світла"></div><div class="slot off" title="16:00 - 16:30: Немає світла"></div><div class="slot on" title="16:30 - 17:00: Є світло"></div><div class="slot on" title="17:00 - 17:30: Є світло"></div><div class="slot on" title="17:30 - 18:00: Є світло"></div><div class="slot on" title="18:00 - 18:30: Є світло"></div><div class="slot on" title="18:30 - 19:00: Є світло"></div><div class="slot on" title="19:00 - 19:30: Є світло"></div><div class="slot off" title="19:30 - 20:00: Немає світла"></div><div class="slot off" title="20:00 - 20:30: Немає світла"></div><div class="slot off" title="20:30 - 21:00: Немає світла"></div><div class="slot off" title="21:00 - 21:30: Немає світла"></div><div class="slot off" title="21:30 - 22:00: Немає світла"></div><div class="slot off" title="22:00 - 22:30: Немає світла"></div><div class="slot on" title="22:30 - 23:00: Є світло"></div><div class="slot on" title="23:00 - 23:30: Є світло"></div><div class="slot on" title="23:30 - 24:00: Є світло"></div></div>
+            <div class="hours-scale">
+                <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>24:00</span>
+            </div>
+        </div>
+        
+        <footer>
+            Джерело: <a href="https://www.ztoe.com.ua/unhooking-search.php" target="_blank">АТ «Житомиробленерго»</a>
+        </footer>
+    </div>
+</body>
+</html>
