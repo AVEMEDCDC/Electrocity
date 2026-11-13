@@ -246,10 +246,14 @@ def build_html(update_info: str, schedules: list[dict], checked_at: str) -> str:
 
 def send_telegram(update_info: str, schedules: list[dict], page_url: str):
     token = os.getenv("TELEGRAM_BOT_TOKEN")
-    chat_id = os.getenv("TELEGRAM_CHAT_ID")
-    if not token or not chat_id:
+    chat_ids_raw = os.getenv("TELEGRAM_CHAT_ID")
+    
+    if not token or not chat_ids_raw:
         print("Telegram credentials not set, skipping notification.")
         return
+
+    # Розбиваємо рядок на список ID за допомогою кому або пробілів
+    chat_ids = [cid.strip() for cid in re.split(r"[,;\s]+", chat_ids_raw) if cid.strip()]
 
     lines = [
         f"⚡ <b>Графік відключень світла | Черга {TARGET_SUBQUEUE}</b>",
@@ -273,15 +277,20 @@ def send_telegram(update_info: str, schedules: list[dict], page_url: str):
 
     text = "\n".join(lines)
     api_url = f"https://api.telegram.org/bot{token}/sendMessage"
-    payload = {
-        "chat_id": chat_id,
-        "text": text,
-        "parse_mode": "HTML",
-        "disable_web_page_preview": True
-    }
-    r = requests.post(api_url, json=payload, timeout=20)
-    r.raise_for_status()
-    print("Telegram message sent successfully.")
+
+    for chat_id in chat_ids:
+        payload = {
+            "chat_id": chat_id,
+            "text": text,
+            "parse_mode": "HTML",
+            "disable_web_page_preview": True
+        }
+        try:
+            r = requests.post(api_url, json=payload, timeout=20)
+            r.raise_for_status()
+            print(f"Telegram message sent successfully to chat_id: {chat_id}")
+        except Exception as e:
+            print(f"Failed to send message to chat_id {chat_id}: {e}")
 
 
 if __name__ == "__main__":
