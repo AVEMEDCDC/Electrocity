@@ -1,0 +1,40 @@
+name: Update Power Outage Schedule (Queue 5.2)
+
+on:
+  schedule:
+    # 05:15 UTC = 07:15 за Києвом (зимовий час) / 08:15 (літній час)
+    - cron: '15 5 * * *'
+  workflow_dispatch: # Дозволяє запускати скрипт вручну кнопкою в GitHub
+
+permissions:
+  contents: write
+
+jobs:
+  update-schedule:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scraper & send Telegram notification
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PAGES_URL: "https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/"
+        run: python scraper.py
+
+      - name: Commit and push updated index.html
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --quiet && git diff --staged --quiet || (git commit -m "Update schedule $(date -u +'%Y-%m-%d %H:%M UTC')" && git push)
