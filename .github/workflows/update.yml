@@ -2,9 +2,9 @@ name: Update Power Outage Schedule (Queue 5.2)
 
 on:
   schedule:
-    # 05:15 UTC = 07:15 за Києвом (зимовий час) / 08:15 (літній час)
-    - cron: '15 5 * * *'
-  workflow_dispatch: # Дозволяє запускати скрипт вручну кнопкою в GitHub
+    - cron: '15 5 * * *'  # 07:15 за Києвом
+    - cron: '45 5 * * *'  # 07:45 за Києвом
+  workflow_dispatch:
 
 permissions:
   contents: write
