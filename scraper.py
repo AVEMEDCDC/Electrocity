@@ -82,6 +82,7 @@ def fetch_and_parse():
         update_info = update_match.group(1).strip()
 
     schedules = []
+    seen_dates = set()
     standard_slots = generate_48_slots()
 
     for table in soup.find_all("table"):
@@ -91,6 +92,9 @@ def fetch_and_parse():
             continue
 
         date_str = date_match.group(1)
+        
+        if date_str in seen_dates:
+            continue
 
         for tr in table.find_all("tr"):
             cells = tr.find_all(["td", "th"])
@@ -116,6 +120,7 @@ def fetch_and_parse():
                         "total_hours": total_off_hours,
                         "slots": parsed_slots
                     })
+                    seen_dates.add(date_str)
                     break
 
     return update_info, schedules
