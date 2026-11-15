@@ -2,8 +2,8 @@ name: Update Power Outage Schedule (Queue 5.2)
 
 on:
   schedule:
-    - cron: '15 5 * * *'  # 07:15 за Києвом
-    - cron: '45 5 * * *'  # 07:45 за Києвом
+    - cron: '48 0 * * *'
+    - cron: '34 6 * * *'
   workflow_dispatch:
 
 permissions:
